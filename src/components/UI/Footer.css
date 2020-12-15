@@ -1,0 +1,9 @@
+.footer {
+  background-color: #00aded; /*green*/
+  height: 40px !important;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,36 @@
+.hiringview {
+  margin-top: 55px !important;
+  padding: 0 !important;
+  background-color: white !important;
+  width: 100% !important;
+}
+.hiringview_mainSelect {
+  display: flex !important;
+  margin: 0 0 !important;
+  padding-top: 2% !important;
+  justify-content: space-between;
+}
+.hiringview_selectLeft {
+  display: flex !important;
+}
+
+.hiringview_selectRight {
+  display: flex !important;
+}
+.hiringview_selectBack {
+  color: white;
+  background-color: #00aded;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  font-weight: bolder !important;
+  font-size: small !important;
+  margin-left: 30px !important;
+  cursor: pointer;
+}
+.hiringview_rightIcon {
+  color: #00aded;
+  font-size: xx-large !important;
+  margin-right: 20px;
+  cursor: pointer;
+}

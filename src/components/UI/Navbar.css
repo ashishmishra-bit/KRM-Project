@@ -1,0 +1,154 @@
+.navbar {
+  display: flex;
+  position: relative;
+  color: white !important;
+  background-color: #17d059; /*green*/
+  height: 55px;
+  /* padding-top: 10px; */
+  padding-top: 0.3%;
+  padding-left: 1.75%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100% !important;
+}
+
+.navbar_left {
+  display: flex;
+}
+.navbar_left > img {
+  height: 2.75em !important;
+  object-fit: contain;
+}
+.navbar_left > h1 {
+  font-weight: bolder;
+  margin-top: 2% !important;
+  margin-left: 1.75rem !important;
+}
+.navbar_right {
+  display: flex !important;
+  flex: 0.15 !important;
+  margin-top: 7px;
+  justify-content: flex-end !important;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  margin-top: -12px !important;
+}
+.nav_avatar {
+  /* margin-left: 20px; */
+  color: white;
+  font-size: 40px !important;
+
+  margin: auto 30px !important;
+  margin-top: -15% !important;
+}
+.grid {
+  font-size: 50px !important;
+  margin-top: -38% !important;
+  color: white !important;
+  /* padding-left: 150px; */
+}
+@media screen and (max-width: 600px) {
+  .navbar {
+    height: 40px !important;
+  }
+  .navbar_left > img {
+    height: 1.75em !important;
+    object-fit: contain;
+  }
+  .navbar_left > h1 {
+    font-size: x-large;
+    margin-top: 0 !important;
+    margin-left: 1.5rem !important;
+  }
+  .navbar_right {
+    display: flex !important;
+    flex: 0.15 !important;
+
+    padding-left: 0px !important;
+    justify-content: flex-end !important;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    margin-top: -15px !important;
+  }
+  .nav_avatar {
+    font-size: 25px !important;
+    /* margin-left: 20px; */
+    margin: auto 15px !important;
+    margin-top: -25% !important;
+  }
+  .grid {
+    font-size: 30px !important;
+    /* margin: 0 !important; */
+    margin-top: -30% !important;
+    color: white !important;
+    margin-right: -40% !important;
+  }
+  .dropdown {
+    width: 200px !important;
+  }
+  .meeting {
+    margin-left: 10px !important;
+  }
+}
+.dropdown {
+  background: white;
+  color: black;
+  position: absolute;
+  top: 100%;
+  left: -100px;
+  width: 250px;
+  z-index: 2;
+  border: 7px solid #00aded;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  font-weight: bolder;
+  color: #00aded !important;
+  margin: 0;
+  display: flex;
+  padding: 8px 12px;
+  border: 1px solid #00aded;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  /* justify-content: space-around; */
+}
+li img,
+li a img {
+  height: 27px;
+}
+li a {
+  display: flex;
+  color: #00aded !important;
+}
+li:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 3px solid #00aded;
+}
+.nameGrid {
+  flex: 1 !important;
+  margin-left: 10px;
+}
+.iconGrid {
+  margin-left: 10px;
+}
+.meeting {
+  margin-left: 55px;
+}
+.iconAvatar {
+  margin-left: 10px !important;
+}
+.nameAvatar {
+  margin-left: 20px !important;
+}
