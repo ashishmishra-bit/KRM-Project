@@ -91,7 +91,7 @@ function Navbar({ Icon, name }) {
                       <AddBox />
                     </div>
                   </NavLink>
-                  <NavLink className="link" exact to="/hiringview">
+                  <NavLink className="link" exact to="/hiringreport">
                     <div className="iconGrid">
                       <Visibility />
                     </div>

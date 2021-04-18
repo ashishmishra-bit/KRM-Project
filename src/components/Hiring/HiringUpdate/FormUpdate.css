@@ -1,0 +1,330 @@
+.FormUpdate {
+  /* margin: 30px 40px !important; */
+  width: 49% !important;
+  border: 1px solid #00aded;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: fit-content;
+  overflow: auto !important;
+  margin-bottom: 5% !important;
+  box-shadow: 0 0 10px #9ecaed;
+}
+.FormUpdate_heading {
+  background-color: #00aded;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.1% 0;
+}
+
+.FormUpdate_material {
+  display: flex;
+  flex-direction: row;
+}
+.FormUpdate_materialStream {
+  border-right: 2px solid #00aded;
+  flex: 0.2;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-left: 2%;
+}
+.FormUpdate_stream > input {
+  margin-left: 0px;
+  text-align: center;
+}
+.FormUpdate_stream {
+  font-size: 14px;
+}
+.FormUpdate_materialMain {
+  flex: 0.8;
+  margin-top: 4%;
+  margin-left: 3%;
+}
+.Form_required {
+  color: red;
+}
+input:focus,
+textarea:focus,
+.mr10:focus {
+  outline: none;
+}
+
+.mr10 {
+  background-color: #00aded;
+  color: white;
+  border-radius: 50%;
+  border: none;
+}
+input {
+  border: 1.5px solid #00aded;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-left: 30px;
+}
+textarea {
+  border-radius: 10px;
+  border: 1.5px solid #00aded;
+  width: 120px;
+}
+#Form_labelCTC {
+  position: relative;
+}
+.label_tag {
+  font-size: 14px;
+  color: #17d059;
+  position: absolute;
+  margin-top: 18px;
+  margin-left: -90px;
+  width: 120px;
+}
+.error_tag {
+  font-size: 14px;
+  color: red;
+  position: absolute;
+  margin-top: 40px;
+  margin-left: -90px;
+  width: 250px;
+}
+.error_intern {
+  margin-top: 53px;
+  margin-left: -90px;
+}
+.ml10 {
+  width: 70px;
+}
+.ml11 {
+  width: 110px;
+}
+.box:nth-child(n) {
+  margin-top: -20px;
+  margin-bottom: 35px !important;
+  padding: 0 !important;
+}
+
+.box {
+  display: flex;
+  margin-left: 120px;
+}
+
+.mr10 {
+  margin-left: 8px;
+}
+
+#batch {
+  width: 66% !important;
+  padding: 8px 30px !important;
+  margin-left: 18.5% !important;
+}
+#offers {
+  width: 58%;
+  margin-left: 10%;
+}
+
+#month {
+  width: 65% !important;
+  margin-left: 50px !important;
+}
+.Form_dateLabel {
+  position: relative;
+}
+
+#Form_date {
+  font-size: 14px;
+  color: #17d059;
+  position: absolute;
+  margin-top: 35%;
+  margin-left: -90px;
+  width: 120px;
+}
+#date {
+  width: 21.75%;
+  margin-top: 15px;
+  padding: 8px 20px;
+}
+
+#status {
+  width: 65% !important;
+  margin-left: 25px !important;
+}
+.Form_remark {
+  position: relative;
+}
+#remark {
+  position: absolute;
+  margin-left: 90px;
+  width: 23% !important;
+}
+.Form_PPO {
+  color: red !important;
+  font-weight: bolder;
+}
+#ppo_offered {
+  width: 60% !important;
+  margin-left: 40px;
+}
+@media screen and (max-width: 600px) {
+  .FormUpdate {
+    margin-top: 5% !important;
+    margin-bottom: 20% !important;
+    width: 90% !important;
+  }
+  .FormUpdate_material {
+    display: flex;
+    flex-direction: column;
+  }
+  .FormUpdate_materialStream {
+    border-right: none;
+    border-bottom: 2px solid #00aded;
+    padding-bottom: 4%;
+  }
+  .label_tag {
+    font-size: 14px;
+    color: #17d059;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 10px;
+    width: 150px;
+  }
+  .error_tag {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    margin-top: 33px;
+    margin-left: -50px;
+    width: 220px;
+  }
+  .box {
+    flex-direction: column;
+    margin: 30px auto !important;
+  }
+  .ml10,
+  .ml11 {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  #batch {
+    margin-left: 4%;
+  }
+  #offers {
+    margin-top: 2%;
+  }
+  #month {
+    margin-top: 2%;
+  }
+  #Form_date {
+    margin-top: 0;
+    margin-left: 20%;
+  }
+  #date {
+    width: 40%;
+    margin-left: 30%;
+  }
+  #status {
+    margin-top: 2%;
+  }
+  #remark {
+    margin-top: 2%;
+    position: absolute;
+    margin-left: 5%;
+    width: 70% !important;
+  }
+  #ppo_offered {
+    margin-top: 2%;
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  #remark {
+    margin-top: 2%;
+    position: relative;
+    margin-left: 5%;
+    width: 80% !important;
+  }
+}
+input[type="date"]::before {
+  content: attr(placeholder);
+  width: 100%;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  display: none;
+}
+@media screen and (max-width: 1440px) {
+  .FormUpdate {
+    margin-top: 5% !important;
+    margin-bottom: 20% !important;
+    width: 90% !important;
+  }
+  .FormUpdate_material {
+    display: flex;
+    flex-direction: column;
+  }
+  .FormUpdate_materialStream {
+    border-right: none;
+    border-bottom: 2px solid #00aded;
+    padding-bottom: 4%;
+  }
+  .label_tag {
+    font-size: 14px;
+    color: #17d059;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 10px;
+    width: 120px;
+  }
+  .error_tag {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    margin-top: 20px;
+
+    width: 250px;
+  }
+  .error_intern {
+    margin-top: 35px;
+  }
+  .box {
+    flex-direction: column;
+    margin: 35px auto !important;
+  }
+  .ml10,
+  .ml11 {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  #batch {
+    margin-left: 4%;
+  }
+  #offers {
+    margin-top: 2%;
+  }
+  #month {
+    margin-top: 2%;
+  }
+  #Form_date {
+    margin-top: 0;
+    margin-left: 20%;
+  }
+  #date {
+    width: 40%;
+    margin-left: 30%;
+  }
+  #status {
+    margin-top: 2%;
+  }
+  #remark {
+    margin-top: 2%;
+    position: relative;
+    margin-left: 5%;
+    width: 80% !important;
+  }
+  #ppo_offered {
+    margin-top: 2%;
+    width: 70% !important;
+  }
+}

@@ -1,0 +1,63 @@
+.hiringreport {
+  margin-top: 55px !important;
+  padding: 0 !important;
+  background-color: white !important;
+  width: 100% !important;
+  padding-bottom: 40px !important;
+}
+.hiringreport_main {
+  width: 100% !important;
+}
+
+.hiringreport_mainSelect {
+  display: flex !important;
+  margin: 0 0 !important;
+  padding-top: 2% !important;
+  justify-content: space-between;
+}
+.hiringreport_selectLeft {
+  display: flex !important;
+  flex: 0.95;
+}
+
+.hiringreport_selectRight {
+  display: flex !important;
+  flex: 0.05;
+}
+.hiringreport_selectBack {
+  color: white;
+  background-color: #00aded;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  font-weight: bolder !important;
+  font-size: small !important;
+  margin-left: 30px !important;
+  margin-top: 10px !important;
+  cursor: pointer;
+}
+.buttons {
+  margin-bottom: -20px !important;
+  margin-left: 41px !important;
+  display: flex !important;
+  margin-right: 0 !important;
+  width: 95% !important;
+}
+.table_button {
+  background-color: white !important;
+  border: #00aded 2px solid !important;
+  color: #00aded !important;
+  padding: 15px 53.25px !important;
+  font-weight: bolder !important;
+  font-size: medium !important;
+}
+.hiringreport_mainTable {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  overflow-x: auto !important;
+}
+.active_table {
+  background-color: #00aded !important;
+
+  color: white !important;
+}

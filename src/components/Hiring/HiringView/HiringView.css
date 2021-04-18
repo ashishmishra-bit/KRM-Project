@@ -1,0 +1,181 @@
+.hiringview {
+  margin-top: 55px !important;
+  padding: 0 !important;
+  background-color: white !important;
+  width: 100% !important;
+  padding-bottom: 40px !important;
+}
+.hiringview_main {
+  width: 100% !important;
+}
+.hiringview_mainSelect {
+  display: flex !important;
+  margin: 0 0 !important;
+  padding-top: 2% !important;
+  justify-content: space-between;
+}
+.hiringview_selectLeft {
+  display: flex !important;
+  flex: 1;
+}
+
+.hiringview_selectRight {
+  display: flex !important;
+}
+.hiringview_selectBack {
+  color: white;
+  background-color: #00aded;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  font-weight: bolder !important;
+  font-size: small !important;
+  margin-left: 30px !important;
+  margin-top: 10px !important;
+  cursor: pointer;
+}
+.hiringview_rightIcon {
+  color: #00aded;
+  font-size: xx-large !important;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.hiringview_mainTable {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  overflow-x: auto !important;
+}
+
+.MuiTableCell-head {
+  background-color: #00aded;
+  color: white !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  font-size: large !important;
+  border-left: 2px solid white !important;
+  border-right: 2px solid white !important;
+}
+.MuiTable-root {
+  width: 95% !important;
+  margin: 20px auto !important;
+  box-shadow: 0 0 10px #9ecaed;
+  border: 1px solid #00aded;
+  overflow-x: auto !important;
+}
+.paper2 {
+  width: 75% !important;
+}
+.MuiTableRow-root {
+  border-bottom: 1px solid #00aded !important;
+}
+.MuiTableCell-body {
+  border-bottom: 1px solid #00aded !important;
+  text-align: center !important;
+}
+.MuiTableCell-head:first-child,
+.MuiTableCell-head:last-child {
+  border-bottom: none;
+}
+.MuiTableRow-head:nth-last-child() {
+  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+
+.MuiTableRow-root > .MuiTableCell-body:first-child {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+.MuiRadio-root {
+  padding-right: 4px !important;
+  padding-left: 4px !important;
+}
+.modal {
+  background-color: white;
+}
+.css-cqf9y8-control,
+.css-anb06n-control,
+.css-pghfyh-control,
+select {
+  margin: auto 30px !important;
+  border: 1.5px solid #00aded !important;
+  width: 500px !important;
+
+  padding: 8px 50px !important;
+
+  border-radius: 30px !important;
+}
+select:focus {
+  outline: none !important;
+}
+@media screen and (max-width: 1440px) {
+  .css-2b097c-container {
+    width: 80% !important;
+  }
+  .css-cqf9y8-control,
+  .css-anb06n-control,
+  .css-pghfyh-control,
+  select {
+    margin: auto 30px !important;
+    border: 1.5px solid #00aded !important;
+    width: 80% !important;
+
+    margin-bottom: 15px !important;
+
+    padding: 8px 10px !important;
+
+    border-radius: 30px !important;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .css-pghfyh-control,
+  .css-anb06n-control,
+  select {
+    margin-bottom: 15px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hiringview {
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+  }
+  .css-cqf9y8-control,
+  .css-anb06n-control,
+  .css-pghfyh-control,
+  select {
+    margin: auto 30px !important;
+    border: 1.5px solid #00aded !important;
+    width: 80% !important;
+    margin-bottom: 13px !important;
+    padding: 8px 10px !important;
+
+    border-radius: 30px !important;
+  }
+}
+@media screen and (max-width: 810px) {
+  .MuiTableCell-root {
+    padding: 13px !important;
+  }
+}
+@media screen and (max-width: 740px) {
+  .MuiTableCell-root {
+    padding: 7px !important;
+  }
+}
+@media screen and (max-width: 740px) {
+  .MuiTableCell-root {
+    padding: 5px !important;
+  }
+}
+@media screen and (max-width: 347px) {
+  .hiringview_main {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .hiringview_mainSelect {
+    flex-direction: column;
+  }
+  .hiringview_selectRight {
+    margin: 0 auto;
+  }
+}

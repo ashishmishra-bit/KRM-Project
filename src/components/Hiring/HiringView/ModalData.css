@@ -1,0 +1,159 @@
+.ModalData_companyName {
+  text-align: center;
+  color: #00aded;
+}
+.ModalData {
+  position: relative;
+}
+.ModalData_element {
+  display: flex !important;
+  justify-content: space-evenly !important;
+}
+.modalData_box {
+  width: 47% !important;
+  border: 1px solid #00aded;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 560px;
+  margin-bottom: 0 !important;
+  overflow: auto !important;
+  padding-bottom: 3% !important;
+  box-shadow: 0 0 10px #9ecaed;
+}
+.stream {
+  display: flex;
+}
+.blue {
+  flex: 0.1;
+  color: #00aded !important;
+  padding-top: 15px;
+  font-size: small !important;
+}
+.streamData {
+  flex: 0.9;
+  margin-top: 12px !important;
+  margin-bottom: 0 !important;
+}
+.modalData_heading {
+  background-color: #00aded;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.1% 0;
+}
+.modalData_material {
+  display: flex;
+  flex-direction: row;
+}
+.modalData_Stream {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 3%;
+  margin-bottom: 14px !important;
+  margin-top: 14px !important;
+}
+.modalData_main {
+  margin-top: 10px;
+  border-left: 2px solid #00aded;
+  flex: 0.7;
+  padding-right: 10px;
+}
+
+.row {
+  margin-left: 15px;
+  display: flex;
+}
+.bold {
+  font-weight: bolder;
+  flex: 0.45;
+}
+.data {
+  flex: 0.55;
+}
+.pro_tag,
+.in_proTag,
+.ppo_proTag {
+  font-size: 14px;
+  color: #17d059;
+  position: absolute;
+  margin-top: 18px;
+  margin-left: -90px;
+  width: 120px;
+}
+.batch_margin {
+  margin-top: 10px;
+}
+.date_tagLabel,
+.ppo_proLabelTag,
+.in_proLabelTag,
+.pla_proLabelTag {
+  position: relative;
+}
+.date_tag {
+  font-size: 14px;
+  color: #17d059;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: -90px;
+  width: 120px;
+}
+.PPO_in {
+  color: red !important;
+  font-weight: bolder;
+  margin-left: 20px;
+}
+.modal_close {
+  position: absolute !important;
+  right: 0 !important;
+  left: auto !important;
+  top: 0;
+  align-self: flex-start;
+  margin-top: 0;
+  padding-top: 0 !important;
+  padding-right: 0 !important;
+}
+@media screen and (max-width: 1440px) {
+  .ModalData_element,
+  .modalData_material {
+    flex-direction: column !important;
+  }
+  .modalData_box {
+    width: 90% !important;
+    margin: 5% auto !important;
+    height: fit-content !important;
+  }
+  .modalData_Stream {
+    padding-bottom: 8%;
+    border-bottom: 2px solid #00aded;
+  }
+  .modalData_main {
+    border-left: none;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .date_tag {
+    margin-top: 15%;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .date_tag {
+    margin-left: -30px;
+  }
+}
+
+@media screen and (max-width: 343px) {
+  .pro_tag,
+  .in_proTag,
+  .ppo_proTag {
+    margin-left: -30px;
+  }
+  .date_tag {
+    margin-top: 20%;
+  }
+}

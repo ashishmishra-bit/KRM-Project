@@ -152,3 +152,9 @@ li:hover {
 .nameAvatar {
   margin-left: 20px !important;
 }
+
+@media screen and (max-width: 320px) {
+  .navbar_right {
+    flex: 0.05;
+  }
+}

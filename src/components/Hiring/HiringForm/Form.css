@@ -33,6 +33,7 @@
 }
 .Form_stream > input {
   margin-left: 0px;
+  text-align: center;
 }
 .Form_stream {
   font-size: 14px;
@@ -66,6 +67,7 @@ input {
 textarea {
   border-radius: 10px;
   border: 1.5px solid #00aded;
+  width: 120px;
 }
 #Form_labelCTC {
   position: relative;
@@ -153,7 +155,7 @@ textarea {
 #remark {
   position: absolute;
   margin-left: 90px;
-  width: 20% !important;
+  width: 23% !important;
 }
 .Form_PPO {
   color: red !important;

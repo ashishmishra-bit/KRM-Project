@@ -1,155 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./Form.css";
+import React, { useState, useEffect } from "react";
+import { Container } from "@material-ui/core";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
-import { Container } from "@material-ui/core";
-
-function Form(props) {
+import "./FormUpdate.css";
+function FormUpdate({ type, data, setData }) {
+  //console.log(data.stream_data);
   const [batchArray, setBatchArray] = useState([]);
   const [errorP, seterrorP] = useState(false);
   const [errorI, seterrorI] = useState(false);
   const [errorIN, seterrorIN] = useState(false);
-  // handle input change
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...props.PlaProCTC];
-    list[index][name] = value;
-    props.setPlaProCTC(list);
-  };
+  const [stream_Inter, setStream_Inter] = useState(data.stream_data);
 
-  // handle click event of the Remove button
-  const handleRemoveClick = (index) => {
-    const list = [...props.PlaProCTC];
-    list.splice(index, 1);
-    props.setPlaProCTC(list);
-  };
-
-  // handle click event of the Add button
-  const handleAddClick = () => {
-    props.setPlaProCTC([...props.PlaProCTC, { Profile: "", CTC: "" }]);
-  };
-
-  //Internship 1
-  const handleInputChange_I = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...props.InterProCTC];
-    list[index][name] = value;
-    props.setInterProCTC(list);
-  };
-
-  // handle click event of the Remove button
-  const handleRemoveClick_I = (index) => {
-    const list = [...props.InterProCTC];
-    list.splice(index, 1);
-    props.setInterProCTC(list);
-  };
-
-  // handle click event of the Add button
-  const handleAddClick_I = () => {
-    props.setInterProCTC([...props.InterProCTC, { Profile: "", CTC: "" }]);
-  };
-
-  // Internship ka alg
-  const handleInputChange_IN = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...props.InterProCTC_PPO];
-    list[index][name] = value;
-    props.setInterProCTC_PPO(list);
-  };
-
-  // handle click event of the Remove button
-  const handleRemoveClick_IN = (index) => {
-    const list = [...props.InterProCTC_PPO];
-    list.splice(index, 1);
-    props.setInterProCTC_PPO(list);
-  };
-
-  // handle click event of the Add button
-  const handleAddClick_IN = () => {
-    props.setInterProCTC_PPO([
-      ...props.InterProCTC_PPO,
-      { Profile: "", CTC: "" },
-    ]);
-  };
-
-  const batchIN = (e) => {
-    console.log(e.target.value);
-    props.setInterBatch(e.target.value);
-  };
-  const batchPla = (e) => {
-    props.setPlaBatch(e.target.value);
-  };
-
-  const offerIN = (e) => {
-    props.setInterOffers(e.target.value);
-  };
-  const offerPla = (e) => {
-    props.setPlaOffers(e.target.value);
-  };
-  const RemarkIN = (e) => {
-    props.setInterRemark(e.target.value);
-  };
-  const RemarkPla = (e) => {
-    props.setPlaRemark(e.target.value);
-  };
-
-  const streamInter = (e) => {
-    const list = [...props.streamInter];
-    if (e.target.value === "All" && e.target.checked) {
-      list.map((li) => {
-        {
-          li.isChecked = true;
-        }
-      });
-      props.setStreamInterSelected(list);
-    } else if (e.target.value === "All" && !e.target.checked) {
-      list.map((li) => {
-        {
-          li.isChecked = false;
-        }
-      });
-      props.setStreamInterSelected(list);
-    } else {
-      list.map((li) => {
-        if (li.stream === e.target.value) {
-          {
-            li.isChecked = !li.isChecked;
-          }
-        }
-      });
-      props.setStreamInterSelected(list);
-    }
-    //console.log(list)
-  };
-  const streamPla = (e) => {
-    const list = [...props.streamPla];
-    if (e.target.value === "All" && e.target.checked) {
-      list.map((li) => {
-        {
-          li.isChecked = true;
-        }
-      });
-      props.setStreamPlaSelected(list);
-    } else if (e.target.value === "All" && !e.target.checked) {
-      list.map((li) => {
-        {
-          li.isChecked = false;
-        }
-      });
-      props.setStreamPlaSelected(list);
-    } else {
-      list.map((li) => {
-        if (li.stream === e.target.value) {
-          {
-            li.isChecked = !li.isChecked;
-          }
-        }
-      });
-      props.setStreamPlaSelected(list);
-    }
-  };
+  const [stream_Pla, setStream_Pla] = useState(data.stream_data);
 
   useEffect(() => {
+    console.log("1");
     var today = new Date();
     //var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -159,7 +24,219 @@ function Form(props) {
     } else {
       setBatchArray([yyyy - 1, yyyy, yyyy + 1]);
     }
+
+    stream_Pla.map((x) => {
+      x.isChecked = false;
+    });
+    stream_Inter.map((x) => {
+      x.isChecked = false;
+    });
+
+    var sii = data.stream_id_in.length;
+    var sip = data.stream_id_pla.length;
+    var sd = data.stream_data.length;
+    for (var i = 0; i < sii; i++) {
+      for (var j = 0; j < sd; j++) {
+        if (stream_Inter[j].value === data.stream_id_in[i]) {
+          stream_Inter[j].isChecked = true;
+        }
+      }
+    }
+    for (var i = 0; i < sip; i++) {
+      for (var j = 0; j < sd; j++) {
+        if (stream_Pla[j].value === data.stream_id_pla[i]) {
+          stream_Pla[j].isChecked = true;
+        }
+      }
+    }
   }, []);
+
+  const streamInterSelectFunction = (e) => {
+    const list = [...stream_Inter];
+
+    if (e.target.value === "All" && e.target.checked) {
+      let save = [];
+      list.map((li) => {
+        // eslint-disable-next-line no-lone-blocks
+        {
+          li.isChecked = true;
+        }
+      });
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_in: save });
+    } else if (e.target.value === "All" && !e.target.checked) {
+      let save = [];
+      // eslint-disable-next-line array-callback-return
+      list.map((li) => {
+        // eslint-disable-next-line no-lone-blocks
+        {
+          li.isChecked = false;
+        }
+      });
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_in: save });
+    } else {
+      let save = [];
+      list.map((li) => {
+        if (li.value == e.target.value) {
+          {
+            li.isChecked = !li.isChecked;
+          }
+        }
+      });
+      setStream_Inter(list);
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_in: save });
+    }
+    //console.log(list)
+  };
+  const streamPlaSelectFunction = (e) => {
+    const list = [...stream_Pla];
+    if (e.target.value === "All" && e.target.checked) {
+      //console.log("select all");
+      let save = [];
+
+      list.map((li) => {
+        {
+          li.isChecked = true;
+        }
+      });
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_pla: save });
+    } else if (e.target.value === "All" && !e.target.checked) {
+      let save = [];
+
+      //console.log("deselect all");
+      // eslint-disable-next-line array-callback-return
+      list.map((li) => {
+        // eslint-disable-next-line no-lone-blocks
+        {
+          li.isChecked = false;
+        }
+      });
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_pla: save });
+    } else {
+      let save = [];
+
+      // console.log(e.target.value);
+      list.map((li) => {
+        if (li.value == e.target.value) {
+          //console.log("1", li.isChecked);
+          li.isChecked = !li.isChecked;
+        }
+      });
+      setStream_Pla(list);
+      //console.log(props.streamPla);
+      list.map((li) => {
+        if (li.isChecked === true) {
+          save = [...save, li.value];
+        }
+      });
+      //console.log(save);
+      setData({ ...data, stream_id_pla: save });
+      //console.log(props.streamPlaSelected);
+    }
+  };
+
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...data.profile_ctc_li];
+    list[index][name] = value;
+    setData({ ...data, profile_ctc_li: list });
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick = (index) => {
+    const list = [...data.profile_ctc_li];
+    list.splice(index, 1);
+    setData({ ...data, profile_ctc_li: list });
+  };
+
+  // handle click event of the Add button
+  const handleAddClick = () => {
+    setData({
+      ...data,
+      profile_ctc_li: [...data.profile_ctc_li, { Profile: "", CTC: "" }],
+    });
+  };
+
+  //Internship 1
+  const handleInputChange_I = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...data.intern_profile_ctc_li];
+    list[index][name] = value;
+    setData({ ...data, intern_profile_ctc_li: list });
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick_I = (index) => {
+    const list = [...data.intern_profile_ctc_li];
+    list.splice(index, 1);
+    setData({ ...data, intern_profile_ctc_li: list });
+  };
+
+  // handle click event of the Add button
+  const handleAddClick_I = () => {
+    setData({
+      ...data,
+      intern_profile_ctc_li: [
+        ...data.intern_profile_ctc_li,
+        { Profile: "", CTC: "" },
+      ],
+    });
+  };
+
+  // Internship ka alg
+  const handleInputChange_IN = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...data.ppo_profile_ctc_li];
+    list[index][name] = value;
+    setData({ ...data, ppo_profile_ctc_li: list });
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick_IN = (index) => {
+    const list = [...data.ppo_profile_ctc_li];
+    list.splice(index, 1);
+    setData({ ...data, ppo_profile_ctc_li: list });
+  };
+
+  // handle click event of the Add button
+  const handleAddClick_IN = () => {
+    setData({
+      ...data,
+      ppo_profile_ctc_li: [
+        ...data.ppo_profile_ctc_li,
+        { Profile: "", CTC: "" },
+      ],
+    });
+  };
 
   const isFloat = (vf) => {
     var floatRegex = /^-?\d+(?:[.,]\d*?)?$/;
@@ -175,67 +252,75 @@ function Form(props) {
     if (!intRegex.test(vi)) return false;
 
     var intVal = parseInt(vi, 10);
-    return parseFloat(vi) == intVal && !isNaN(intVal);
+    return parseFloat(vi) === intVal && !isNaN(intVal);
   };
 
   return (
-    <Container disableGutters={true} maxWidth="md" className="Form">
-      <div className="Form_heading">
-        <h3>{props.type} Details</h3>
+    <Container disableGutters={true} maxWidth="md" className="FormUpdate">
+      <div className="FormUpdate_heading">
+        <h3>{type} Details</h3>
       </div>
 
-      <div className="Form_material">
-        <div className="Form_materialStream">
+      <div className="FormUpdate_material">
+        <div className="FormUpdate_materialStream">
           <p>
             Stream <span className="Form_required">*</span>
           </p>
 
-          {props.type === "Internship" ? (
+          {type === "Internship" ? (
             <React.Fragment>
-              <label className="Form_stream">
-                <input onChange={streamInter} value="All" type="checkbox" />
+              <label className="FormUpdate_stream">
+                <input
+                  onChange={streamInterSelectFunction}
+                  value="All"
+                  type="checkbox"
+                />
                 All
               </label>
 
-              {props.streamInter.map((streamOption) => {
+              {stream_Inter.map((streamOptionIN) => {
                 return (
-                  <label className="Form_stream">
+                  <label className="FormUpdate_stream">
                     <input
-                      checked={streamOption.isChecked}
-                      onChange={streamInter}
-                      value={streamOption.stream}
+                      checked={streamOptionIN.isChecked}
+                      onChange={streamInterSelectFunction}
+                      value={streamOptionIN.value}
                       type="checkbox"
                     />
-                    {streamOption.stream}
+                    {streamOptionIN.label}
                   </label>
                 );
               })}
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <label className="Form_stream">
-                <input onChange={streamPla} value="All" type="checkbox" />
+              <label className="FormUpdate_stream">
+                <input
+                  onChange={streamPlaSelectFunction}
+                  value="All"
+                  type="checkbox"
+                />
                 All
               </label>
 
-              {props.streamPla.map((streamOption) => {
+              {stream_Pla.map((streamOption) => {
                 return (
-                  <label className="Form_stream">
+                  <label className="FormUpdate_stream">
                     <input
                       checked={streamOption.isChecked}
-                      onChange={streamPla}
-                      value={streamOption.stream}
+                      onChange={streamPlaSelectFunction}
+                      value={streamOption.value}
                       type="checkbox"
                     />
-                    {streamOption.stream}
+                    {streamOption.label}
                   </label>
                 );
               })}
             </React.Fragment>
           )}
         </div>
-        <div className="Form_materialMain">
-          {props.type === "Internship" ? (
+        <div className="FormUpdate_materialMain">
+          {type === "Internship" ? (
             <React.Fragment>
               <label id="Form_labelCTC" for="Form_proCTC">
                 Profile - CTC
@@ -248,7 +333,7 @@ function Form(props) {
                   </span>
                 )}
               </label>
-              {props.InterProCTC.map((x, i) => {
+              {data.intern_profile_ctc_li.map((x, i) => {
                 return (
                   <div className="box">
                     <input
@@ -264,9 +349,7 @@ function Form(props) {
                       className="ml11"
                       name="CTC"
                       placeholder={
-                        props.type === "Internship"
-                          ? "Stipend per month"
-                          : "CTC"
+                        type === "Internship" ? "Stipend per month" : "CTC"
                       }
                       value={x.CTC}
                       onChange={(e) => {
@@ -285,7 +368,7 @@ function Form(props) {
                       }}
                     />
                     <div className="btn-box">
-                      {props.InterProCTC.length !== 1 && (
+                      {data.intern_profile_ctc_li.length !== 1 && (
                         <button
                           className="mr10"
                           onClick={() => handleRemoveClick_I(i)}
@@ -293,7 +376,7 @@ function Form(props) {
                           <CloseRoundedIcon />
                         </button>
                       )}
-                      {props.InterProCTC.length - 1 === i && (
+                      {data.intern_profile_ctc_li.length - 1 === i && (
                         <button className="mr10" onClick={handleAddClick_I}>
                           <AddRoundedIcon />
                         </button>
@@ -305,7 +388,6 @@ function Form(props) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {" "}
               <label id="Form_labelCTC" for="Form_proCTC">
                 Profile - CTC<span className="label_tag">(in Lakh)</span>
                 {errorP && (
@@ -314,7 +396,7 @@ function Form(props) {
                   </span>
                 )}
               </label>
-              {props.PlaProCTC.map((x, i) => {
+              {data.profile_ctc_li.map((x, i) => {
                 return (
                   <div className="box">
                     <input
@@ -322,6 +404,7 @@ function Form(props) {
                       className="ml10"
                       name="Profile"
                       value={x.Profile}
+                      defaultValue={x.Profile}
                       placeholder="Profile"
                       onChange={(e) => handleInputChange(e, i)}
                     />
@@ -329,10 +412,9 @@ function Form(props) {
                       type="text"
                       className="ml11"
                       name="CTC"
+                      defaultValue={x.CTC}
                       placeholder={
-                        props.type === "Internship"
-                          ? "Stipend per month"
-                          : "CTC"
+                        type === "Internship" ? "Stipend per month" : "CTC"
                       }
                       value={x.CTC}
                       onChange={(e) => {
@@ -352,7 +434,7 @@ function Form(props) {
                       }}
                     />
                     <div className="btn-box">
-                      {props.PlaProCTC.length !== 1 && (
+                      {data.profile_ctc_li.length !== 1 && (
                         <button
                           className="mr10"
                           onClick={() => handleRemoveClick(i)}
@@ -360,7 +442,7 @@ function Form(props) {
                           <CloseRoundedIcon />
                         </button>
                       )}
-                      {props.PlaProCTC.length - 1 === i && (
+                      {data.profile_ctc_li.length - 1 === i && (
                         <button className="mr10" onClick={handleAddClick}>
                           <AddRoundedIcon />
                         </button>
@@ -374,13 +456,18 @@ function Form(props) {
 
           <label for="batch">Batch</label>
           <select
-            onChange={props.type === "Internship" ? batchIN : batchPla}
+            onChange={(e) =>
+              type === "Internship"
+                ? setData({ ...data, intern_batch: e.target.value })
+                : setData({ ...data, batch: e.target.value })
+            }
             className="Form_batch"
             id="batch"
+            defaultValue={
+              type === "Internship" ? data.intern_batch : data.batch
+            }
           >
-            <option defaultValue value={batchArray[1]}>
-              {batchArray[1]}
-            </option>
+            <option value={batchArray[1]}>{batchArray[1]}</option>
             <option value={batchArray[0]}>{batchArray[0]}</option>
             <option value={batchArray[2]}>{batchArray[2]}</option>
           </select>
@@ -389,32 +476,43 @@ function Form(props) {
 
           <label for="offers">No. of Offers</label>
           <input
+            defaultValue={
+              type === "Internship" ? data.intern_offers : data.offers
+            }
             id="offers"
             type="text"
-            onChange={props.type === "Internship" ? offerIN : offerPla}
+            onChange={(e) =>
+              type === "Internship"
+                ? setData({ ...data, intern_offers: e.target.value })
+                : setData({ ...data, offers: e.target.value })
+            }
           ></input>
           <br />
           <br />
 
-          {props.type === "Internship" ? (
+          {type === "Internship" ? (
             <React.Fragment>
               <label className="Form_dateLabel" for="date">
                 Internship Date <span id="Form_date">(Tentative)</span>
               </label>
 
               <input
-                onChange={(e) => props.setInterStartDate(e.target.value)}
+                onChange={(e) =>
+                  setData({ ...data, start_date: e.target.value })
+                }
                 id="date"
                 type="date"
                 required
-                placeholder="Start Date"
+                value={data.start_date}
+                placeholder={data.start_date}
               />
               <input
-                onChange={(e) => props.setInterEndDate(e.target.value)}
+                defaultValue={data.end_date}
+                onChange={(e) => setData({ ...data, end_date: e.target.value })}
                 id="date"
                 type="date"
                 required
-                placeholder="End Date"
+                placeholder={data.end_date}
               />
             </React.Fragment>
           ) : (
@@ -422,11 +520,11 @@ function Form(props) {
               <label for="month">Month of visit</label>
               <select
                 id="month"
-                onChange={(e) => props.setPlaMonth(e.target.value)}
+                onChange={(e) =>
+                  setData({ ...data, visit_month: e.target.value })
+                }
+                defaultValue={data.visit_month}
               >
-                <option defaultValue value="default" hidden>
-                  Select Month
-                </option>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -447,26 +545,26 @@ function Form(props) {
               <label for="status">Placement Status</label>
               <select
                 id="status"
-                onChange={(e) => props.setPlaStatus(e.target.value)}
+                onChange={(e) =>
+                  setData({ ...data, placement_status_id: e.target.value })
+                }
+                defaultValue={data.placement_status_id}
               >
-                <option defaultValue value="default" hidden>
-                  Select Status
-                </option>
                 <option value="0">0 - Visited for current year</option>
                 <option value="1">
-                  1 – {props.pay}L fixed+fresher recruitment policy in place &
+                  1 – {data.pay}L fixed+fresher recruitment policy in place &
                   Hot for current year
                 </option>
                 <option value="2">
-                  2 - {props.pay}L fixed+fresher recruitment policy in place &
+                  2 - {data.pay}L fixed+fresher recruitment policy in place &
                   for next year
                 </option>
                 <option value="3">
-                  3 - {props.pay}L fixed /no fresher recruitment policy / hot
-                  for current year
+                  3 - {data.pay}L fixed /no fresher recruitment policy / hot for
+                  current year
                 </option>
                 <option value="4">
-                  4 - {props.pay}L fixed /no fresher recruitment policy / for
+                  4 - {data.pay}L fixed /no fresher recruitment policy / for
                   next year
                 </option>
                 <option value="5">
@@ -482,22 +580,33 @@ function Form(props) {
             Remark
           </label>
           <textarea
-            onChange={props.type === "Internship" ? RemarkIN : RemarkPla}
+            defaultValue={
+              type === "Internship" ? data.intern_remark : data.remarks
+            }
+            onChange={(e) =>
+              type === "Internship"
+                ? setData({ ...data, intern_remark: e.target.value })
+                : setData({ ...data, remarks: e.target.value })
+            }
             id="remark"
             rows="5"
+            cols="100"
           />
 
           <br />
           <br />
           <br />
 
-          {props.type === "Internship" ? (
+          {type === "Internship" ? (
             <React.Fragment>
               <h4 className="Form_PPO">PPO</h4>
 
               <label for="ppo_offered">PPOs Offered</label>
               <input
-                onChange={(e) => props.setInterOffers_PPO(e.target.value)}
+                defaultValue={data.ppo_offered}
+                onChange={(e) =>
+                  setData({ ...data, ppo_offered: e.target.value })
+                }
                 id="ppo_offered"
                 type="text"
               />
@@ -512,7 +621,7 @@ function Form(props) {
                   </span>
                 )}
               </label>
-              {props.InterProCTC_PPO.map((x, i) => {
+              {data.ppo_profile_ctc_li.map((x, i) => {
                 return (
                   <div className="box">
                     <input
@@ -520,6 +629,7 @@ function Form(props) {
                       className="ml10"
                       name="Profile"
                       value={x.Profile_In}
+                      defaultValue={x.Profile}
                       placeholder="Profile"
                       onChange={(e) => handleInputChange_IN(e, i)}
                     />
@@ -529,6 +639,7 @@ function Form(props) {
                       name="CTC"
                       placeholder="CTC"
                       value={x.CTC_In}
+                      defaultValue={x.CTC}
                       onChange={(e) => {
                         var valueIN = e.target.value;
                         if (
@@ -545,7 +656,7 @@ function Form(props) {
                       }}
                     />
                     <div className="btn-box">
-                      {props.InterProCTC_PPO.length !== 1 && (
+                      {data.ppo_profile_ctc_li.length !== 1 && (
                         <button
                           className="mr10"
                           onClick={() => handleRemoveClick_IN(i)}
@@ -553,7 +664,7 @@ function Form(props) {
                           <CloseRoundedIcon />
                         </button>
                       )}
-                      {props.InterProCTC_PPO.length - 1 === i && (
+                      {data.ppo_profile_ctc_li.length - 1 === i && (
                         <button className="mr10" onClick={handleAddClick_IN}>
                           <AddRoundedIcon />
                         </button>
@@ -578,4 +689,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default FormUpdate;

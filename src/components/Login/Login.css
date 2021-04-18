@@ -1,9 +1,17 @@
-body {
-  background-image: linear-gradient(to right, #38f9d7 0%, #43e97b 100%);
+.container_login {
+  background-image: linear-gradient(
+    to right,
+    #38f9d7 0%,
+    #43e97b 100%
+  ) !important;
+  width: 100% !important;
+  /* top: 0 !important; */
+  height: 100%;
+  position: absolute !important;
 }
-
 .login {
   display: flex !important;
+
   align-items: center !important;
   flex-direction: column !important;
   background-color: white;
@@ -99,6 +107,12 @@ body {
 }
 .input_icon {
   color: #00aded !important;
+}
+@media screen and (max-width: 345px) {
+  .avatar_container {
+    height: 90px !important;
+    width: 90px !important;
+  }
 }
 @media screen and (max-width: 450px) {
   .avatar_container {
