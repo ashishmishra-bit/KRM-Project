@@ -92,7 +92,7 @@ function HiringForm() {
         {
           headers: {
             Authorization:
-              "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+              "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
           },
         }
       )
@@ -121,7 +121,7 @@ function HiringForm() {
         {
           headers: {
             Authorization:
-              "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+              "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
           },
         }
       )
@@ -159,11 +159,11 @@ function HiringForm() {
       .get("http://127.0.0.1:8000/hiring/assigncompany/", {
         headers: {
           Authorization:
-            "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+            "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
         },
       })
       .then((res) => {
-        //console.log(res.data);
+        console.log(res.data);
         res.data.response.map((d) => {
           setCompanyOptions((prevOption) => [
             ...prevOption,

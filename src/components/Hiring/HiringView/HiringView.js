@@ -166,7 +166,7 @@ function HiringView() {
         .get(`http://127.0.0.1:8000/hiring/internships/?comp_id=${p}`, {
           headers: {
             Authorization:
-              "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+              "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
           },
         })
         .then((res) => {
@@ -188,7 +188,7 @@ function HiringView() {
         .get(`http://127.0.0.1:8000/hiring/placements/?comp_id=${p}`, {
           headers: {
             Authorization:
-              "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+              "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
           },
         })
         .then((res) => {
@@ -239,7 +239,7 @@ function HiringView() {
       .get("http://127.0.0.1:8000/hiring/assigncompany/", {
         headers: {
           Authorization:
-            "Token 77264ad1e4645c13eadd6964aeacf8572cc043aec074738a174c5402537feaf7",
+            "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",
         },
       })
       .then((res) => {

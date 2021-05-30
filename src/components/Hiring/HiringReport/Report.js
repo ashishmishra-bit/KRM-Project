@@ -7,6 +7,7 @@ import Navbar from "../../UI/Navbar";
 import Footer from "../../UI/Footer";
 import { Container, Button } from "@material-ui/core";
 import HiringIcon from "../../../images/hiring4.png";
+import axios from "axios";
 import Select from "react-select";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 
@@ -50,59 +51,108 @@ function Report() {
   ]);
   const [yearReport, setYearReport] = useState("");
 
-  const [visiting, setVisiting] = useState([
-    {
-      PlaStatus: 1,
-      Company_Name: "ABC Comapny",
-      Month_of_visit: "May",
-      School: "School of Engineering",
-      Profile: "SD",
-      CTC: 8.9,
-    },
-    {
-      PlaStatus: 2,
-      Company_Name: "AB Comapny",
-      Month_of_visit: "June",
-      School: "School of Engineering",
-      Profile: "SD1",
-      CTC: 9.9,
-    },
-    {
-      PlaStatus: 3,
-      Company_Name: "ABD Comapny",
-      Month_of_visit: "July",
-      School: "School of Management",
-      Profile: "PM",
-      CTC: 10.9,
-    },
-  ]);
+  // const [visiting, setVisiting] = useState([
+  //   {
+  //     PlaStatus: 1,
+  //     Company_Name: "ABC Comapny",
+  //     Month_of_visit: "May",
+  //     School: "School of Engineering",
+  //     Profile: "SD",
+  //     CTC: 8.9,
+  //   },
+  //   {
+  //     PlaStatus: 2,
+  //     Company_Name: "AB Comapny",
+  //     Month_of_visit: "June",
+  //     School: "School of Engineering",
+  //     Profile: "SD1",
+  //     CTC: 9.9,
+  //   },
+  //   {
+  //     PlaStatus: 3,
+  //     Company_Name: "ABD Comapny",
+  //     Month_of_visit: "July",
+  //     School: "School of Management",
+  //     Profile: "PM",
+  //     CTC: 10.9,
+  //   },
+  // ]);
 
-  const [hotCurrentYear, setHotCurrentYear] = useState([
-    {
-      PlaStatus: 1,
-      Company_Name: "ABE Comapny",
-      Month_of_visit: "October",
-      School: "School of Management",
-      Profile: "PM",
-      CTC: 8.9,
-    },
-    {
-      PlaStatus: 1,
-      Company_Name: "ABQ Comapny",
-      Month_of_visit: "November",
-      School: "School of Engineering",
-      Profile: "SD1",
-      CTC: 9.9,
-    },
-    {
-      PlaStatus: 3,
-      Company_Name: "ABW Comapny",
-      Month_of_visit: "August",
-      School: "School of Management",
-      Profile: "PM",
-      CTC: 10.9,
-    },
-  ]);
+
+  const [visiting, setVisiting] = useState();
+//   useEffect(() => {
+//     axios
+//       .get("http://127.0.0.1:8000/hiring/visiting/?batch=2021",{
+//         headers: {
+//           Authorization:
+//           "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",  
+//         },      
+//   })
+//   .then((res) => {
+//     console.log(res)
+//     res.data.response.map((d) => {
+//       setDataTable((prevOption)=>[
+//         ...prevOption,
+//         { comp_id: d.comp_id, company_name: d.company_name , school_id: d.school_id, school_name: d.school_name , profile_ctc: d.profile_ctc , month: d.month , placement_info_id: d.placement_info_id },
+//       ]);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+// }, []);
+
+ 
+
+  // const [hotCurrentYear, setHotCurrentYear] = useState([
+  //   {
+  //     PlaStatus: 1,
+  //     Company_Name: "ABE Comapny",
+  //     Month_of_visit: "October",
+  //     School: "School of Management",
+  //     Profile: "PM",
+  //     CTC: 8.9,
+  //   },
+  //   {
+  //     PlaStatus: 1,
+  //     Company_Name: "ABQ Comapny",
+  //     Month_of_visit: "November",
+  //     School: "School of Engineering",
+  //     Profile: "SD1",
+  //     CTC: 9.9,
+  //   },
+  //   {
+  //     PlaStatus: 3,
+  //     Company_Name: "ABW Comapny",
+  //     Month_of_visit: "August",
+  //     School: "School of Management",
+  //     Profile: "PM",
+  //     CTC: 10.9,
+  //   },
+  // ]);
+  const [hotCurrentYear , setHotCurrentYear] = useState();
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/hiring/current_hot_visiting/?batch=2021",{
+        headers: {
+          Authorization:
+          "Token d5d6da08036044f0c7484edcd9cf70adb772ccd91223d8fa1c9bacb7baf1229f",  
+        },      
+  })
+  .then((res) => {
+    console.log(res)
+    res.data.response.map((p) => {
+      setDataTable((prevOption)=>[
+        ...prevOption,
+        { comp_id: p.comp_id, company_name: p.company_name , school_id: p.school_id, school_name: p.school_name , profile_ctc: p.profile_ctc , month: p.month , placement_info_id: p.placement_info_id },
+      ]);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+}, []);
 
   const [hotNextYear, setHotNextYear] = useState([
     {
@@ -184,6 +234,28 @@ function Report() {
     },
   ]);
 
+//   useEffect(() => {
+//     axios
+//       .get("http://127.0.0.1:8000/hiring/not_visiting/?batch=2021/",{
+//         headers: {
+//           Authorization:
+//           "Token 9b4ef7449077d585570dd67166a7e432dbe4140b51c03d61be67c35bd81040d1",  
+//         },      
+//   })
+//   .then((res) => {
+//     console.log(res)
+//     res.data.response.map((d) => {
+//       setDataTable((prevOption)=>[
+//         ...prevOption,
+//         { comp_id: d.comp_id, company_name: d.company_name , school_id: d.school_id, school_name: d.school_name , profile_ctc: d.profile_ctc , month: d.month , placement_info_id: d.placement_info_id },
+//       ]);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+// }, []);
+
   const [notConfirmed, setNotConfirmed] = useState([
     {
       PlaStatus: 1,
@@ -210,8 +282,34 @@ function Report() {
       CTC: 10.9,
     },
   ]);
-  const [dataTable, setDataTable] = useState(React.useMemo(() => visiting));
+  // const [dataTable, setDataTable] = useState((() => visiting));
+  const [dataTable ,setDataTable] = useState([])
   const [dataSetTo, setDataSetTo] = useState("Visiting");
+
+
+  // const [dataSetTo, setDataSetTo] = useState("HotCurrentYear");
+
+ 
+
+//  const company_visiting = (e) => {
+//     if(e != null){
+//       setVisiting(e.value);
+//       axios
+//         .get(`http://127.0.0.1:8000/hiring/visiting/?batch=${e.value}`)
+//         .then((res) =>{
+//           res.data.response.map((d) => {
+//             setVisiting((prevOption) => [
+//               ...prevOption,
+//               { comp_id: d.comp_id, company_name: d.company_name , school_id: d.school_id, school_name: d.school_name , profile_ctc: d.profile_ctc , month: d.month , placement_info_id: d.placement_info_id },
+//             ]);
+//           })
+//         })
+//     }else{
+//       setVisiting([]);
+//     }
+//   };
+
+
   const companySelectReport = (e) => {
     // console.log(e.label);
     if (e == null) {
@@ -279,27 +377,28 @@ function Report() {
     () => [
       {
         Header: "Company name",
-        accessor: "Company_Name",
+        accessor: "company_name",
       },
       {
         Header: "Month of Visit",
-        accessor: "Month_of_visit",
+        accessor: "month",
       },
       {
         Header: "School",
-        accessor: "School",
+        accessor: "school_name",
       },
+      // {
+      //   Header: "Profile",
+      //   accessor: "",
+      // },
       {
-        Header: "Profile",
-        accessor: "Profile",
-      },
-      {
-        Header: "CTC",
-        accessor: "CTC",
+        Header: "Profile-CTC",
+        accessor: "profile_ctc",
       },
     ],
     []
   );
+  
 
   return (
     <Container component="main" maxWidth={false} className="hiringreport">
@@ -350,7 +449,7 @@ function Report() {
               }
               variant="contained"
             >
-              Visiting
+              Visiting 
             </Button>
             <Button
               onClick={hotCurrentYearButton}
